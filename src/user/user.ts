@@ -1,0 +1,56 @@
+import {
+  Column,
+  DataType,
+  Default,
+  DefaultScope,
+  HasMany,
+  Model,
+  Scopes,
+  Table,
+  Unique,
+} from "sequelize-typescript";
+import Like from "../Like/Like";
+import Comment from "../Comment/Comment";
+
+export type IUser = {
+  [x: string]: any;
+  firstName: string;
+  lastName: string;
+  password: string;
+  email: string;
+  role: string;
+  verified?: boolean;
+  resetPasswordToken?: string;
+};
+type role = "admin" | "user";
+
+@Table({ timestamps: true })
+class User extends Model {
+  @Column
+  password: string;
+
+  @Unique
+  @Column
+  email: string;
+
+  @Column
+  firstName: string;
+
+  @Column
+  lastName: string;
+
+  @Column
+  resetPasswordToken: string;
+
+  @Default("user")
+  @Column(DataType.ENUM("admin", "user"))
+  role: role;
+
+  @HasMany(() => Like)
+  likes: Like[];
+
+  @HasMany(() => Comment)
+  comments: Comment[];
+}
+
+export default User;
