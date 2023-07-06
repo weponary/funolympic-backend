@@ -13,14 +13,16 @@
 - Create postgres user named "admin" with password "admin"
 - Create database named "funolympic"
 - Create .env file in project folder and the copy following
-  `  POSTGRES_PASSWORD=admin`
-  `POSTGRES_USER=postgres`
-  `POSTGRES_DB=funolympic`
-  `POSTGRES_HOST=localhost`
-  `MAIL_USER=roxanne.gerlach57@ethereal.email`
-  `MAIL_PASSWORD=W98uq61ZHfj7GAbeuJ`
+  POSTGRES_PASSWORD=admin
+  POSTGRES_USER=postgres
+  POSTGRES_DB=funolympic
+  POSTGRES_HOST=localhost
+  MAIL_USER=roxanne.gerlach57@ethereal.email
+  MAIL_PASSWORD=W98uq61ZHfj7GAbeuJ
 - Open project file and run the following command :
-  `npm run dev`
+  ```sh
+  npm run dev
+  ```
 
 ## Using Docker
 
@@ -31,20 +33,41 @@
 **Steps**
 
 - Create .env file in project folder and the copy following
-  `  POSTGRES_PASSWORD=admin`
-  `POSTGRES_USER=postgres`
-  `POSTGRES_DB=funolympic`
-  `POSTGRES_HOST=db`
-  `MAIL_USER=roxanne.gerlach57@ethereal.email`
-  `MAIL_PASSWORD=W98uq61ZHfj7GAbeuJ`
+  POSTGRES_PASSWORD=admin
+  POSTGRES_USER=postgres
+  POSTGRES_DB=funolympic
+  POSTGRES_HOST=db
+  MAIL_USER=roxanne.gerlach57@ethereal.email
+  MAIL_PASSWORD=W98uq61ZHfj7GAbeuJ
 - Open project file and run following commands:
-  `docker-compose up --build`
+
+```sh
+docker-compose up --build
+```
+
 - once completd open next terminal without closing first one then write following commands:
-  `docker ps`
-  `docker exec -it <Database_imageId> /bin/bash`
-  `psql --username=admin --password`
+
+```sh
+docker ps
+```
+
+```sh
+docker exec -it <Database_imageId> /bin/bash
+```
+
+```
+psql --username=admin --password
+```
+
 - enter the passowrd as "admin" then write following command
-  `CREATE DATABASE funolympic;`
+
+```sh
+CREATE DATABASE funolympic;
+```
+
 - exit both terminal
 - Open new terminal on same project folder and run following command
-  `docker-compose up`
+
+```sh
+docker-compose up
+```
